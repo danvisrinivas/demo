@@ -44,7 +44,7 @@ pipeline {
         echo "Starting Spring Boot application"
         echo "================================="
 
-        java -jar $APP_DIR/$JAR_NAME > $APP_DIR/app.log 2>&1 &
+        java -jar $APP_DIR/$JAR_NAME --server.port=9999 > $APP_DIR/app.log 2>&1 &
 
         APP_PID=$!
         echo "Started process with PID: $APP_PID"
@@ -69,6 +69,7 @@ pipeline {
 
     }
 }
+
 
 
 
