@@ -44,19 +44,17 @@ pipeline {
         echo "Starting Spring Boot application"
         echo "================================="
 
-        BUILD_ID=dontKillMe nohup java -jar $APP_DIR/$JAR_NAME > $APP_DIR/app.log 2>&1 &
-        
-        echo "Waiting for app to start..."
-        sleep 15
+        setsid java -jar $APP_DIR/$JAR_NAME > $APP_DIR/app.log 2>&1 < /dev/null &
 
-        echo "Last 50 lines of app.log:"
-        tail -50 $APP_DIR/app.log
+        echo "Last 10 lines of app.log:"
+        tail -10 $APP_DIR/app.log
         '''
     }
 }
 
     }
 }
+
 
 
 
