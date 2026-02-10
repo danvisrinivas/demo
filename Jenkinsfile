@@ -39,21 +39,13 @@ pipeline {
         sh '''
         mkdir -p $APP_DIR
         cp $BUILD_JAR $APP_DIR/$JAR_NAME
-
-        echo "================================="
-        echo "Starting Spring Boot application"
-        echo "================================="
-
-        setsid java -jar $APP_DIR/$JAR_NAME > $APP_DIR/app.log 2>&1 < /dev/null &
-
-        echo "Last 10 lines of app.log:"
-        tail -10 $APP_DIR/app.log
         '''
     }
 }
 
     }
 }
+
 
 
 
