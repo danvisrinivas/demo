@@ -44,13 +44,14 @@ pipeline {
         echo "Starting Spring Boot application"
         echo "================================="
 
-        java -jar app.jar
+        java -jar $APP_DIR/$JAR_NAME
         '''
     }
 }
 
     }
 }
+
 
 
 
