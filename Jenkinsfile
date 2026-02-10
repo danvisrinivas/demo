@@ -44,31 +44,14 @@ pipeline {
         echo "Starting Spring Boot application"
         echo "================================="
 
-        java -jar $APP_DIR/$JAR_NAME --server.port=9999 > $APP_DIR/app.log 2>&1 &
-
-        APP_PID=$!
-        echo "Started process with PID: $APP_PID"
-
-        echo "Waiting for application to start..."
-        sleep 15
-
-        echo "Checking application status..."
-
-        if ps -p $APP_PID > /dev/null
-        then
-            echo "✅ Application STARTED successfully"
-        else
-            echo "❌ Application FAILED to start"
-            echo "===== Last 50 lines of log ====="
-            tail -n 50 $APP_DIR/app.log
-            exit 1
-        fi
+        java -jar app.jar
         '''
     }
 }
 
     }
 }
+
 
 
 
